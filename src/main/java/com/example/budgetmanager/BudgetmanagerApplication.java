@@ -8,6 +8,6 @@ public class BudgetmanagerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BudgetmanagerApplication.class, args);
+		System.out.println("test");
 	}
-
 }
