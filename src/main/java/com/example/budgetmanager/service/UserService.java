@@ -1,4 +1,12 @@
+package com.example.budgetmanager.service;
+
+import com.example.budgetmanager.model.User;
+import com.example.budgetmanager.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -20,10 +28,6 @@ public class UserService {
 
     public Optional<User> getUserByUsername(String username) {
         return userRepository.findByUsername(username);
-    }
-
-    public Optional<User> getUserByEmail(String email) {
-        return userRepository.findByEmail(email);
     }
 
     public boolean validatePassword(String rawPassword, String encodedPassword) {

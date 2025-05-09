@@ -2,6 +2,7 @@ package com.example.budgetmanager.controller;
 
 import com.example.budgetmanager.model.User;
 import com.example.budgetmanager.security.JwtUtil;
+import com.example.budgetmanager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
-
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
