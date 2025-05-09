@@ -1,9 +1,24 @@
+package com.example.budgetmanager.controller;
+
+import com.example.budgetmanager.model.User;
+import com.example.budgetmanager.security.JwtUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.example.budgetmanager.repository.UserRepository;
+
+import java.util.Collections;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
 
     @Autowired
     private UserService userService;
+
+    private UserRepository userRepository;
 
     @Autowired
     private JwtUtil jwtUtil;
