@@ -6,6 +6,9 @@ import Report from './components/Report';
 import AddTransaction from './components/AddTransaction';
 import Budget from './components/Budget';
 import BudgetOverview from './components/BudgetOverview';
+import Dashboard from './components/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute';
+import CategoryManager from './components/CategoryManager';
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -35,11 +38,38 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login setToken={setToken} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/report" element={<Report />} />
-          <Route path="/add-transaction" element={<AddTransaction />} />
-          <Route path="/budget" element={<Budget />} />
-          <Route path="/overview" element={<BudgetOverview />} />
+
+          <Route path="/report" element={
+            <ProtectedRoute token={token}>
+              <Report />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/add-transaction" element={
+            <ProtectedRoute token={token}>
+              <AddTransaction />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/budget" element={
+            <ProtectedRoute token={token}>
+              <Budget />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/overview" element={
+            <ProtectedRoute token={token}>
+              <BudgetOverview />
+            </ProtectedRoute>
+          } />
+          <Route path="/categories" element={
+            <ProtectedRoute token={token}>
+              <CategoryManager />
+            </ProtectedRoute>
+          } />
+
         </Routes>
+
       </div>
     </Router>
   );

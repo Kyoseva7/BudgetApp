@@ -54,7 +54,7 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactIdspring-boot-starter-security</artifactId>
+            <artifactId>artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
         <dependency>
@@ -62,7 +62,12 @@
             <artifactId>jjwt</artifactId>
             <version>0.9.1</version>
         </dependency>
-    </dependencies>
+
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+</dependencies>
 
     <build>
         <plugins>

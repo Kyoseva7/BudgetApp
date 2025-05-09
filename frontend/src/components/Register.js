@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
       await axios.post('/auth/register', { username, password });
       alert("Успешна регистрация!");
+      navigate('/login');
     } catch {
       alert("Потребителското име вече съществува");
     }
